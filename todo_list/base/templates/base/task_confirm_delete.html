@@ -1,0 +1,23 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}"
+{% endblock styles %}
+
+{% block header %}
+<header class="header-bar"><h1>Delete Mission</h1></header>
+{% endblock header %}
+
+{% block content %}
+
+<a class="float-left" href="{% url 'tasks' %}"><i class="fa-solid fa-arrow-left"></i> Go back</a>
+<form class="form-block form-body" method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete this task?</p>
+    <h3>{{ task }}</h3>
+    <p>{{task.description}}</p>
+    <input type="submit" value="Delete" />
+</form>
+
+{% endblock content %}

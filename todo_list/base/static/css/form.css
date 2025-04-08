@@ -1,0 +1,57 @@
+.float-left {
+    float: left;
+    text-decoration: none;
+    background-color: gray;
+    border: 1px solid white;
+    padding: 10px;
+    color: white;
+}
+.float-left:hover {
+    background-color: white;
+    color: black;
+}
+.form-block {
+    margin: auto;
+    max-width: 700px;
+    border: 5px outset green;
+}
+.bg-white {
+    background-color: black;
+    color: white;
+}
+.form-body > p {
+    text-align: center;
+}
+
+.form-body {
+    margin-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+.form-group, p {
+    display: flex;
+    justify-content: start;
+    gap: 7px;
+    padding: 5px 0 7px 0;
+}
+
+button {
+    color: white;
+    background-color: green;
+    padding: 3px 7px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+label {
+    color: white;
+    flex: 0 0 30%;
+    text-align: right;
+}
+
+input[type=text] {
+    width: 310px;
+}

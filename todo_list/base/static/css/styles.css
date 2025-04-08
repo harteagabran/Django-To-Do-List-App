@@ -1,0 +1,32 @@
+body {
+    background: url("../images/bg1.webp");
+    background-color: rgba(0, 0, 0, 0.85);
+    background-blend-mode: darken;
+    background-size: cover;
+    background-position: top ;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    margin: 0;
+}
+
+header {
+    background: linear-gradient(to right, rgba(0, 50, 0, 0.85), rgba(34, 139, 34, 0.85),rgba(0, 0, 0, 0.5));
+    padding: 1% 2%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+}
+
+a, p {
+    color: #9caab5 ;
+}
+
+.def-link {
+    color: blue;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}

@@ -1,0 +1,60 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/list.css" %}">
+{% endblock styles %}
+
+{% block header %}
+<header class="header-bar">
+    <div>
+        <h1>Hello {{ request.user|title }}</h1>
+        <h3 id="info">You have <i>{{count}}</i> incomplete task{{ count|pluralize:"s" }}</h3>
+    </div>
+
+    {% if request.user.is_authenticated %}
+        <form id="logout-form" action="{% url 'logout' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</header>
+<hr>
+{% endblock header %}
+
+{% block content %}
+
+<h1 class="center">Missions</h1>
+
+<div class="task-control">
+    <a href={% url 'task-create' %}><i class="fa-regular fa-square-plus"></i></a>
+
+    <form method="GET">
+        <input type="text" name="search-area" value="{{search_input}}">
+        <input type="submit" value="Search">
+    </form>
+</div>
+
+<table class="task-table">
+    {% for task in tasks %}
+    <tr>
+        <td class="center">
+            {% if task.complete %}
+                <i class="fa-regular fa-square-check">
+            {% else %}
+                <i class="fa-regular fa-square">
+            {% endif %}
+        </td>
+        <td class="{% if task.complete %}completed {% endif %}{% if task.priority == 1 %}high{% elif task.priority == 2 %}med{% else %}low{% endif %}">
+
+        {{ task.title }}</td>
+        <td><a href="{% url 'task-update' task.id %}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+        <td><a href="{% url 'task-delete' task.id %}"><i class="fa-solid fa-trash"></a></td>
+    </tr>
+    {% empty %}
+        <h3>No items in list</h3>
+    {% endfor %}
+</table>
+
+{% endblock content %}

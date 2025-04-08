@@ -1,0 +1,21 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}"
+{% endblock styles %}
+
+{% block content %}
+<a class="float-left" href="{% url 'tasks' %}"><i class="fa-solid fa-arrow-left"></i> Go back</a>
+<form class="form-block bg-white" method="POST" action="">
+    <header class="header-bar">
+        <h3>Task Form</h3>
+    </header>
+    <div class="form-body">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit"> Submit </button>
+    </div>
+</form>
+
+{% endblock content %}
